@@ -7,16 +7,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * ：高英杰
- * ：2020-9-24
+ * 会员控制器
  **/
 @Controller
 public class VipController {
 
+    /**
+     * VipService注入
+      */
     @Autowired
     private VipService vipService;
 
-    //添加
+    /**
+     * 对会员表数据的添加
+     * @param vip_name 会员姓名
+     * @param vip_phone 会员电话
+     * @param vip_years_working 会员工作年限
+     * @return  插入成功或插入失败
+     */
     @ResponseBody
     @PostMapping("/vip/insertVip")
     public  String insert(@RequestParam(value = "vip_name",required = false) String vip_name,
@@ -36,7 +44,11 @@ public class VipController {
         }
     }
 
-    //删除
+    /**
+     * 对会员表数据的删除
+     * @param vip_id 会员id
+     * @return 删除成功或删除失败
+     */
     @ResponseBody
     @PostMapping("/vip/deleteVip")
     public String deleteVip(@RequestParam(value = "vip_id") int vip_id){
@@ -50,7 +62,14 @@ public class VipController {
         }
     }
 
-    //修改
+    /**
+     * 对会员表数据的修改
+     * @param vip_id 会员id
+     * @param vip_name 会员姓名
+     * @param vip_phone 会员电话
+     * @param vip_years_working 会员工作年限
+     * @return 修改成功或修改失败
+     */
     @ResponseBody
     @PostMapping(value = "/vip/updateVip")
     public String updateVip(@RequestParam(value = "vip_id") int vip_id,

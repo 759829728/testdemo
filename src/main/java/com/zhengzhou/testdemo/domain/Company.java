@@ -1,11 +1,9 @@
 package com.zhengzhou.testdemo.domain;
 
-import lombok.Data;
 import org.springframework.stereotype.Component;
 
 /**
- * ：高英杰
- * ：2020-9-24
+ * Company Bean
  **/
 @Component
 public class Company {

@@ -10,27 +10,44 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * ：高英杰
- * ：2020-9-24
+ * 简历业务层
  **/
 @Service
 public class ResumeServiceImpl implements ResumeService {
 
+    /**
+     * ResumeMapper注入
+     */
     @Resource
     private ResumeMapper resumeMapper;
 
+    /**
+     * 对简历表数据的添加
+     * @param resume 简历对象
+     * @return 返回插入记录条数
+     */
     @Override
     public int updateResume(Resume resume) {
         int result =resumeMapper.updateResume(resume);
         return result;
     }
 
+    /**
+     * 对简历表数据的删除
+     * @param resume_id 简历id
+     * @return 返回删除记录条数
+     */
     @Override
     public List<Integer> selectId(Integer resume_id) {
         List<Integer> result = resumeMapper.selectId(resume_id);
         return result;
     }
 
+    /**
+     * 对简历表数据的修改
+     * @param resume 简历对象
+     * @return 返回修改记录条数
+     */
     @Override
     public int insertResume(Resume resume) {
         int result = resumeMapper.insertResume(resume);

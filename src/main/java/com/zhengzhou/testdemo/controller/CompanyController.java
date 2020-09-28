@@ -1,22 +1,34 @@
 package com.zhengzhou.testdemo.controller;
 
 import com.zhengzhou.testdemo.domain.Company;
-import com.zhengzhou.testdemo.domain.Vip;
 import com.zhengzhou.testdemo.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * 公司控制器
+ */
 @Controller
 public class CompanyController {
 
+
+    /**
+     * CompanyService注入
+     */
     @Autowired
     private CompanyService companyService;
 
-    //添加
+    /**
+     * 对公司表的数据插入
+     * @param company_name 公司姓名
+     * @param company_scale_company 公司规模
+     * @param company_address 公司地址
+     * @param company_industry  公司行业
+     * @return  插入成功或插入失败
+     */
     @ResponseBody
     @PostMapping("/company/insertCompany")
     public String insert(
@@ -38,7 +50,11 @@ public class CompanyController {
         }
     }
 
-    //删除
+    /**
+     * 对公司表的数据删除
+     * @param company_id  公司id
+     * @return 删除成功或删除失败
+     */
     @ResponseBody
     @PostMapping("/company/deleteCompany")
     public String deleteVip(@RequestParam(value = "company_id") int company_id){
@@ -52,7 +68,15 @@ public class CompanyController {
         }
     }
 
-    //修改
+    /**
+     * 对公司表的数据修改
+     * @param company_id  公司id
+     * @param company_name  公司姓名
+     * @param company_scale_company 公司规模
+     * @param company_address  公司地址
+     * @param company_industry 公司行业
+     * @return 修改成功或修改失败
+     */
     @ResponseBody
     @PostMapping(value = "/company/updateCompany")
     public String updateVip(@RequestParam(value = "company_id") int company_id,

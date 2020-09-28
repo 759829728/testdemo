@@ -9,7 +9,7 @@
       </resultMap>
 
 
-    <!--添加-->
+    <!--对简历表数据的添加-->
     <insert id="insertResume" parameterType="com.zhengzhou.testdemo.domain.Resume">
       INSERT INTO  resume
       <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -48,12 +48,12 @@
       </trim>
    </insert>
 
-  <!--删除-->
+  <!--对简历表数据的删除-->
   <delete id="deleteResume" parameterType="int">
           delete from resume where resume_id=#{resume_id}
   </delete>
 
-  <!--修改-->
+  <!--对简历表数据的修改-->
   <update id="updateResume" parameterType="com.zhengzhou.testdemo.domain.Resume">
     update resume
     <set>
@@ -77,6 +77,7 @@
       resume_id = #{resume_id}
   </update>
 
+  <!--查询简历id是否重复-->
   <select id="selectId" parameterType="java.lang.Integer" resultMap="result">
       SELECT
 		resume_id

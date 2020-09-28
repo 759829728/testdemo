@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhengzhou.testdemo.mapper.CompanyMapper">
 
-    <!--添加-->
+    <!--对公司表的数据插入-->
     <insert id="insertCompany" parameterType="com.zhengzhou.testdemo.domain.Company">
       INSERT INTO company
       <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -37,12 +37,12 @@
       </trim>
    </insert>
 
-  <!--删除-->
+  <!--对公司表的数据删除-->
   <delete id="deleteCompany" parameterType="int">
      delete from company where company_id=#{company_id}
   </delete>
 
-  <!--修改-->
+  <!--对公司表的数据修改-->
   <update id="updateCompany" parameterType="com.zhengzhou.testdemo.domain.Company">
     update company
     <set>

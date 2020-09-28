@@ -4,6 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhengzhou.testdemo.mapper.SendMapper">
 
+    <!--Send的resultMap映射-->
     <resultMap id="result" type="com.zhengzhou.testdemo.domain.Send">
         <id property="send_id" column="send_id"/>
         <result property="vip_id" column="vip_id"/>
@@ -13,7 +14,7 @@
         <result property="send_interview_result" column="send_interview_result"/>
     </resultMap>
 
-    <!--投简历-->
+    <!--投递简历功能，并且校验简历是否重复,如果招聘人数已满，提示招聘人数已满-->
     <insert id="insertSend" parameterType="com.zhengzhou.testdemo.domain.Send">
         insert  into send
         (
@@ -33,6 +34,7 @@
         )
     </insert>
 
+    <!--修改面试结果-->
     <update id="updateInterviewResult" parameterType="int">
         update send set send_interview_result= #{send_interview_result} where send_id = #{send_id}
     </update>

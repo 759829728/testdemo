@@ -3,9 +3,8 @@ package com.zhengzhou.testdemo.domain;
 import org.springframework.stereotype.Component;
 
 /**
- * ：高英杰
- * ：2020-9-24
- **/
+ * Vip Bean
+ */
 @Component
 public class Vip {
     //vipid

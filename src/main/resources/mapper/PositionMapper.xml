@@ -4,8 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhengzhou.testdemo.mapper.PositionMapper">
 
+    <!--Position的resultMap映射-->
     <resultMap id="result" type="com.zhengzhou.testdemo.domain.Position">
-        <id property="position_id" column="position_id"/>
+        <result property="position_id" column="position_id"/>
         <result property="position_name" column="position_name"/>
         <result property="company_id" column="company_id"/>
         <result property="position_mon_salary" column="position_mon_salary"/>
@@ -17,6 +18,7 @@
         <result property="position_release_date" column="position_release_date"/>
     </resultMap>
 
+    <!--VipResumeVo的resultMap映射-->
     <resultMap id="resultVipResumeVo" type="com.zhengzhou.testdemo.Vo.VipResumeVo">
         <result property="resume_id" column="resume_id"/>
         <result property="resume_vip_id" column="resume_vip_id"/>
@@ -30,6 +32,7 @@
         <result property="vip_years_working" column="vip_years_working"/>
     </resultMap>
 
+    <!--Position的position_recruiting_numbers的关系映射-->
     <resultMap id="resultNumbers" type="java.lang.Integer">
         <result property="position_recruiting_numbers" column="position_recruiting_numbers"/>
     </resultMap>
@@ -37,7 +40,7 @@
 
 
 
-    <!--添加-->
+    <!--对职位表数据的插入-->
     <insert id="insertPosition" parameterType="com.zhengzhou.testdemo.domain.Position">
         INSERT INTO
           position
@@ -102,12 +105,12 @@
         </trim>
     </insert>
 
-    <!--删除-->
+    <!--对职位表数据的删除-->
     <delete id="deletePosition" parameterType="int">
           delete from position where position_id=#{position_id}
   </delete>
 
-    <!--修改-->
+    <!--对职位表数据的修改-->
     <update id="updatePosition" parameterType="com.zhengzhou.testdemo.domain.Position">
         update position
         <set>
@@ -222,6 +225,7 @@
     </select>
 
 
+    <!--查询职位招聘数-->
     <select id="selectNumbers" parameterType="java.lang.Integer" resultMap="resultNumbers">
         SELECT
 		    position_recruiting_numbers

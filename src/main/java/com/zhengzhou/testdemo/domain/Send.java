@@ -7,8 +7,7 @@ import java.sql.Time;
 import java.util.Date;
 
 /**
- * ：高英杰
- * ：2020-9-24
+ * Send Bean
  **/
 @Component
 public class Send {

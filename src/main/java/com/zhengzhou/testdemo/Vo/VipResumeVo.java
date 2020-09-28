@@ -2,6 +2,11 @@ package com.zhengzhou.testdemo.Vo;
 
 import org.springframework.stereotype.Component;
 
+
+/**
+ * VipResumeVo Bean
+ */
+
 @Component
 public class VipResumeVo {
     //简历id

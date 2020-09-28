@@ -4,8 +4,7 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 
 /**
- * ：高英杰
- * ：2020-9-24
+ * Resume Bean
  **/
 @Component
 public class Resume {

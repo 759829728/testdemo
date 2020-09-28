@@ -8,13 +8,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
+/**
+ * 简历控制器
+ */
 @Controller
 public class ResumeController {
 
+    /**
+     * ResumeService注入
+     */
     @Autowired
     private ResumeService resumeService;
 
-    //插入
+    /**
+     * 对简历表数据的添加
+     * @param vip_id 会员id
+     * @param resume_job_intention 求职意向
+     * @param resume_expected_salary 期望薪资
+     * @param resume_whether_office 是否在职
+     * @param resume_self_evaluation 自我评价
+     * @return 插入成功或插入失败
+     */
     @ResponseBody
     @PostMapping("/resume/insertResume")
     public String insert(
@@ -38,7 +53,11 @@ public class ResumeController {
         }
     }
 
-    //删除
+    /**
+     * 对简历表数据的删除
+     * @param resume_id 简历id
+     * @return 删除成功或删除失败
+     */
     @ResponseBody
     @PostMapping("/resume/deleteResume")
     public String deleteResume(@RequestParam(value = "resume_id") int resume_id){
@@ -52,7 +71,16 @@ public class ResumeController {
         }
     }
 
-    //修改
+    /**
+     * 对简历表数据的修改
+     * @param resume_id 简历id
+     * @param vip_id 会员id
+     * @param resume_job_intention 求职意向
+     * @param resume_expected_salary 期望薪资
+     * @param resume_whether_office 是否在职
+     * @param resume_self_evaluation 自我评价
+     * @return 修改成功或修改失败
+     */
     @ResponseBody
     @PostMapping(value = "/resume/updateResume")
     public String updateResume(@RequestParam(value = "resume_id") int resume_id,

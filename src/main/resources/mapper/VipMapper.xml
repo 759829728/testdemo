@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhengzhou.testdemo.mapper.VipMapper">
 
-    <!--添加-->
+    <!--对会员表数据的插入-->
     <insert id="insertVip" parameterType="com.zhengzhou.testdemo.domain.Vip">
       INSERT INTO vip
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -31,12 +31,12 @@
         </trim>
    </insert>
 
-    <!--删除-->
+    <!--对会员表数据的删除-->
     <delete id="deleteVip" parameterType="int">
       delete from vip where vip_id=#{vip_id}
    </delete>
 
-    <!--修改-->
+    <!--对会员表数据的修改-->
     <update id="updateVip" parameterType="int">
       update vip
       <set>
