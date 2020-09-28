@@ -34,12 +34,12 @@ public class ResumeServiceImpl implements ResumeService {
 
     /**
      * 对简历表数据的删除
-     * @param resume_id 简历id
+     * @param resume 简历对象
      * @return 返回删除记录条数
      */
     @Override
-    public List<Integer> selectId(Integer resume_id) {
-        List<Integer> result = resumeMapper.selectId(resume_id);
+    public int deleteResume(Resume resume) {
+        int result = resumeMapper.deleteResume(resume.getResume_id());
         return result;
     }
 
@@ -54,9 +54,15 @@ public class ResumeServiceImpl implements ResumeService {
         return result;
     }
 
+    /**
+     * 查询简历id是否重复
+     * @param resume_id 简历id
+     * @return 返回简历id集合
+     */
     @Override
-    public int deleteResume(Resume resume) {
-        int result = resumeMapper.deleteResume(resume.getResume_id());
+    public List<Integer> selectId(Integer resume_id) {
+        List<Integer> result = resumeMapper.selectId(resume_id);
         return result;
     }
+
 }

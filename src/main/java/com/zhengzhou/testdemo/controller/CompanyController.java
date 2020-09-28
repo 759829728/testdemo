@@ -83,8 +83,8 @@ public class CompanyController {
                             @RequestParam(value = "company_name",required = false) String company_name,
                             @RequestParam(value = "company_scale_company",required = false) String company_scale_company,
                             @RequestParam(value = "company_address",required = false) String company_address,
-                            @RequestParam(value = "company_industry",required = false) String company_industry){
-
+                            @RequestParam(value = "company_industry",required = false) String company_industry
+                            ){
         Company company = new Company();
         company.setCompany_id(company_id);
         company.setCompany_name(company_name);

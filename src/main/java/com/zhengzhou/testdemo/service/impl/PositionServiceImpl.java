@@ -78,6 +78,11 @@ public class PositionServiceImpl implements PositionService {
         return resultMap;
     }
 
+    /**
+     * 查询职位招聘数
+     * @param position_id 职位id
+     * @return 返回职位招聘人数
+     */
     @Override
     public Integer selectNumbers(Integer position_id) {
         Integer numbers = positionMapper.selectNumbers(position_id);
