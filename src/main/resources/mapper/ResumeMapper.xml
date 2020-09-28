@@ -1,0 +1,88 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhengzhou.testdemo.mapper.ResumeMapper">
+
+      <resultMap id="result" type="java.lang.Integer">
+        <id property="resume_id" column="resume_id"/>
+      </resultMap>
+
+
+    <!--添加-->
+    <insert id="insertResume" parameterType="com.zhengzhou.testdemo.domain.Resume">
+      INSERT INTO  resume
+      <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="vip_id != null and vip_id != '' ">
+          vip_id,
+        </if>
+        <if test="resume_job_intention != null and resume_job_intention != '' ">
+          resume_job_intention,
+        </if>
+        <if test="resume_expected_salary != null and resume_expected_salary != '' ">
+          resume_expected_salary,
+        </if>
+        <if test="resume_whether_office != null and resume_whether_office != '' ">
+          resume_whether_office,
+        </if>
+        <if test="resume_self_evaluation != null and resume_self_evaluation != '' ">
+          resume_self_evaluation,
+        </if>
+      </trim>
+      <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="vip_id != null and vip_id != '' ">
+          #{vip_id},
+        </if>
+        <if test="resume_job_intention != null and resume_job_intention != '' ">
+          #{resume_job_intention},
+        </if>
+        <if test="resume_expected_salary != null and resume_expected_salary != '' ">
+          #{resume_expected_salary},
+        </if>
+        <if test="resume_whether_office != null and resume_whether_office != '' ">
+          #{resume_whether_office},
+        </if>
+        <if test="resume_self_evaluation != null and resume_self_evaluation != '' ">
+          #{resume_self_evaluation}
+        </if>
+      </trim>
+   </insert>
+
+  <!--删除-->
+  <delete id="deleteResume" parameterType="int">
+          delete from resume where resume_id=#{resume_id}
+  </delete>
+
+  <!--修改-->
+  <update id="updateResume" parameterType="com.zhengzhou.testdemo.domain.Resume">
+    update resume
+    <set>
+      <if test="vip_id != null and vip_id != '' ">
+        vip_id=#{vip_id},
+      </if>
+      <if test="resume_job_intention != null and resume_job_intention != '' ">
+        resume_job_intention=#{resume_job_intention},
+      </if>
+      <if test="resume_expected_salary != null and resume_expected_salary != '' ">
+        resume_expected_salary=#{resume_expected_salary},
+      </if>
+      <if test="resume_whether_office != null and resume_whether_office != '' ">
+        resume_whether_office=#{resume_whether_office},
+      </if>
+      <if test="resume_self_evaluation != null and resume_self_evaluation != '' ">
+        resume_self_evaluation=#{resume_self_evaluation}
+      </if>
+    </set>
+    where
+      resume_id = #{resume_id}
+  </update>
+
+  <select id="selectId" parameterType="java.lang.Integer" resultMap="result">
+      SELECT
+		resume_id
+      FROM
+	    resume
+  </select>
+
+
+</mapper>

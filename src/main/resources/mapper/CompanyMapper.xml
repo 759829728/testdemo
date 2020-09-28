@@ -1,0 +1,67 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhengzhou.testdemo.mapper.CompanyMapper">
+
+    <!--添加-->
+    <insert id="insertCompany" parameterType="com.zhengzhou.testdemo.domain.Company">
+      INSERT INTO company
+      <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="company_name != null and company_name != '' ">
+          company_name,
+        </if>
+        <if test="company_scale_company != null and company_scale_company != '' ">
+          company_scale_company,
+        </if>
+        <if test="company_address != null and company_address != '' ">
+          company_address,
+        </if>
+        <if test="company_industry != null and company_industry != '' ">
+          company_industry,
+        </if>
+      </trim>
+      <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="company_name != null and company_name != '' ">
+          #{company_name},
+        </if>
+        <if test="company_scale_company != null and company_scale_company != '' ">
+          #{company_scale_company},
+        </if>
+        <if test="company_address != null and company_address != '' ">
+          #{company_address},
+        </if>
+        <if test="company_industry != null and company_industry != '' ">
+          #{company_industry}
+        </if>
+      </trim>
+   </insert>
+
+  <!--删除-->
+  <delete id="deleteCompany" parameterType="int">
+     delete from company where company_id=#{company_id}
+  </delete>
+
+  <!--修改-->
+  <update id="updateCompany" parameterType="com.zhengzhou.testdemo.domain.Company">
+    update company
+    <set>
+      <if test="company_name != null and company_name != '' ">
+        company_name=#{company_name},
+      </if>
+      <if test="company_address != null and company_address != '' ">
+        company_address=#{company_address},
+      </if>
+      <if test="company_scale_company != null and company_scale_company != '' ">
+        company_scale_company=#{company_scale_company},
+      </if>
+      <if test="company_industry != null and company_industry != '' ">
+        company_industry=#{company_industry}
+      </if>
+    </set>
+    where
+        company_id = #{company_id}
+  </update>
+
+
+</mapper>

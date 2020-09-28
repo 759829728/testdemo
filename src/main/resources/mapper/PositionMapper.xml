@@ -1,0 +1,236 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhengzhou.testdemo.mapper.PositionMapper">
+
+    <resultMap id="result" type="com.zhengzhou.testdemo.domain.Position">
+        <id property="position_id" column="position_id"/>
+        <result property="position_name" column="position_name"/>
+        <result property="company_id" column="company_id"/>
+        <result property="position_mon_salary" column="position_mon_salary"/>
+        <result property="position_company_nature" column="position_company_nature"/>
+        <result property="position_years_working" column="position_years_working"/>
+        <result property="position_education_background" column="position_education_background"/>
+        <result property="position_scale_company" column="position_scale_company"/>
+        <result property="position_recruiting_numbers" column="position_recruiting_numbers"/>
+        <result property="position_release_date" column="position_release_date"/>
+    </resultMap>
+
+    <resultMap id="resultVipResumeVo" type="com.zhengzhou.testdemo.Vo.VipResumeVo">
+        <result property="resume_id" column="resume_id"/>
+        <result property="resume_vip_id" column="resume_vip_id"/>
+        <result property="resume_job_intention" column="resume_job_intention"/>
+        <result property="resume_expected_salary" column="resume_expected_salary"/>
+        <result property="resume_whether_office" column="resume_whether_office"/>
+        <result property="resume_self_evaluation" column="resume_self_evaluation"/>
+        <result property="vip_id" column="vip_id"/>
+        <result property="vip_name" column="vip_name"/>
+        <result property="vip_phone" column="vip_phone"/>
+        <result property="vip_years_working" column="vip_years_working"/>
+    </resultMap>
+
+    <resultMap id="resultNumbers" type="java.lang.Integer">
+        <result property="position_recruiting_numbers" column="position_recruiting_numbers"/>
+    </resultMap>
+
+
+
+
+    <!--添加-->
+    <insert id="insertPosition" parameterType="com.zhengzhou.testdemo.domain.Position">
+        INSERT INTO
+          position
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="position_name != null and position_name != '' ">
+                position_name,
+            </if>
+            <if test="company_id != null and company_id != '' ">
+                company_id,
+            </if>
+            <if test="position_mon_salary != null and position_mon_salary != '' ">
+                position_mon_salary,
+            </if>
+            <if test="position_company_nature != null and position_company_nature != '' ">
+                position_company_nature,
+            </if>
+            <if test="position_years_working != null and position_years_working != '' ">
+                position_years_working,
+            </if>
+            <if test="position_education_background != null and position_education_background != '' ">
+                position_education_background,
+            </if>
+            <if test="position_scale_company != null and position_scale_company != '' ">
+                position_scale_company,
+            </if>
+            <if test="position_recruiting_numbers != null and position_recruiting_numbers != '' ">
+                position_recruiting_numbers,
+            </if>
+            <if test="position_release_date != null">
+                position_release_date,
+            </if>
+        </trim>
+
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="position_name != null and position_name != '' ">
+                #{position_name},
+            </if>
+            <if test="company_id != null and company_id != '' ">
+                #{company_id},
+            </if>
+            <if test="position_mon_salary != null and position_mon_salary != '' ">
+                #{position_mon_salary},
+            </if>
+            <if test="position_company_nature != null and position_company_nature != '' ">
+                #{position_company_nature},
+            </if>
+            <if test="position_years_working != null and position_years_working != '' ">
+                #{position_years_working},
+            </if>
+            <if test="position_education_background != null and position_education_background != '' ">
+                #{position_education_background},
+            </if>
+            <if test="position_scale_company != null and position_scale_company != '' ">
+                #{position_scale_company},
+            </if>
+            <if test="position_recruiting_numbers != null and position_recruiting_numbers != '' ">
+                #{position_recruiting_numbers},
+            </if>
+            <if test="position_release_date != null">
+                #{position_release_date}
+            </if>
+        </trim>
+    </insert>
+
+    <!--删除-->
+    <delete id="deletePosition" parameterType="int">
+          delete from position where position_id=#{position_id}
+  </delete>
+
+    <!--修改-->
+    <update id="updatePosition" parameterType="com.zhengzhou.testdemo.domain.Position">
+        update position
+        <set>
+            <if test="position_name != null and position_name != '' ">
+                position_name = #{position_name},
+            </if>
+            <if test="company_id != null and company_id != '' ">
+                company_id = #{company_id},
+            </if>
+            <if test="position_mon_salary != null and position_mon_salary != '' ">
+                position_mon_salary  = #{position_mon_salary},
+            </if>
+            <if test="position_company_nature != null and position_company_nature != '' ">
+                position_company_nature =  #{position_company_nature},
+            </if>
+            <if test="position_years_working != null and position_years_working != '' ">
+                position_years_working = #{position_years_working},
+            </if>
+            <if test="position_education_background != null and position_education_background != '' ">
+                position_education_background = #{position_education_background},
+            </if>
+            <if test="position_scale_company != null and position_scale_company != '' ">
+                position_scale_company =  #{position_scale_company},
+            </if>
+            <if test="position_recruiting_numbers != null and position_recruiting_numbers != '' ">
+                position_recruiting_numbers =  #{position_recruiting_numbers},
+            </if>
+            <if test="position_release_date != null">
+                position_release_date =  #{position_release_date}
+            </if>
+        </set>
+        where
+          position_id = #{position_id}
+    </update>
+
+    <!--根据公司名称或职位名称或薪资范围或学历要求搜索查看职位信息，并可按多个条件进行搜索。-->
+    <select id="selectPosition" parameterType="java.util.Map" resultMap="result">
+      select
+        p.position_id,
+        p.position_name,
+        p.company_id,
+        p.position_mon_salary,
+        p.position_company_nature,
+        p.position_years_working,
+        p.position_education_background,
+        p.position_scale_company,
+        p.position_recruiting_numbers,
+        p.position_release_date
+        <if test="company_name != null and company_name != '' ">
+            ,c.*
+        </if>
+      from
+        position  p
+
+        <if test="company_name != null and company_name != '' ">
+              join company c
+              on c.company_name = #{company_name}
+              where p.company_id = c.company_id
+        </if>
+
+        <if test="company_name != null and company_name != '' ">
+            <if test="position_name != null and position_name != '' ">
+                or p.position_name = #{position_name}
+            </if>
+            <if test="position_mon_salary != null and position_mon_salary != '' ">
+                or p.position_mon_salary = #{position_mon_salary}
+            </if>
+            <if test="position_education_background != null and position_education_background != '' ">
+                or p.position_education_background = #{position_education_background}
+            </if>
+        </if>
+
+        <if test="company_name == null and company_name == '' ">
+            <where>
+                <if test="position_name != null and position_name != '' ">
+                    or p.position_name = #{position_name}
+                </if>
+                <if test="position_mon_salary != null and position_mon_salary != '' ">
+                    or p.position_mon_salary = #{position_mon_salary}
+                </if>
+                <if test="position_education_background != null and position_education_background != '' ">
+                    or p.position_education_background = #{position_education_background}
+                </if>
+            </where>
+        </if>
+        limit #{pageNumber},#{pageSize}
+    </select>
+
+
+    <!--根据公司名称和职位名称查询会员信和简历信息-->
+    <select id="selectByPositionandCompany" parameterType="com.zhengzhou.testdemo.Vo.VipResumeVo" resultMap="resultVipResumeVo">
+            SELECT
+                  r.*,v.*
+            FROM
+                    (SELECT
+                         p.*
+                    FROM
+                          position p
+                    JOIN company c
+                    ON p.position_name = #{position_name} AND c.company_name = #{company_name}
+            WHERE
+                  p.company_id = c.company_id) p
+            JOIN
+                  resume r
+            on
+                  p.position_name = r.resume_job_intention
+            JOIN
+                  vip v
+            on
+                  r.vip_id = v.vip_id
+            limit #{pageNumber},#{pageSize}
+    </select>
+
+
+    <select id="selectNumbers" parameterType="java.lang.Integer" resultMap="resultNumbers">
+        SELECT
+		    position_recruiting_numbers
+        FROM
+	        position
+        WHERE
+	        position_id = #{position_id}
+    </select>
+
+
+
+</mapper>

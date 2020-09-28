@@ -1,0 +1,56 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhengzhou.testdemo.mapper.VipMapper">
+
+    <!--添加-->
+    <insert id="insertVip" parameterType="com.zhengzhou.testdemo.domain.Vip">
+      INSERT INTO vip
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+          <if test="vip_name != null and vip_name != '' ">
+              vip_name,
+          </if>
+          <if test="vip_phone != null and vip_phone != '' ">
+              vip_phone,
+          </if>
+          <if test="vip_years_working != null and vip_years_working != '' ">
+              vip_years_working,
+          </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="vip_name != null and vip_name != '' " >
+                #{vip_name},
+            </if>
+            <if test="vip_phone != null and vip_phone != '' " >
+                #{vip_phone},
+            </if>
+            <if test="vip_years_working != null and vip_years_working != '' " >
+                #{vip_years_working}
+            </if>
+        </trim>
+   </insert>
+
+    <!--删除-->
+    <delete id="deleteVip" parameterType="int">
+      delete from vip where vip_id=#{vip_id}
+   </delete>
+
+    <!--修改-->
+    <update id="updateVip" parameterType="int">
+      update vip
+      <set>
+          <if test="vip_name != null and vip_name != '' " >
+              vip_name=#{vip_name},
+          </if>
+          <if test="vip_phone != null and vip_phone != '' ">
+              vip_phone=#{vip_phone},
+          </if>
+          <if test="vip_years_working != null and vip_years_working != '' ">
+              vip_years_working=#{vip_years_working}
+          </if>
+      </set>
+        where
+          vip_id = #{vip_id}
+   </update>
+</mapper>

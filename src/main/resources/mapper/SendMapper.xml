@@ -1,0 +1,42 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhengzhou.testdemo.mapper.SendMapper">
+
+    <resultMap id="result" type="com.zhengzhou.testdemo.domain.Send">
+        <id property="send_id" column="send_id"/>
+        <result property="vip_id" column="vip_id"/>
+        <result property="resume_id" column="resume_id"/>
+        <result property="position_id" column="position_id"/>
+        <result property="send_time" column="send_time"/>
+        <result property="send_interview_result" column="send_interview_result"/>
+    </resultMap>
+
+    <!--投简历-->
+    <insert id="insertSend" parameterType="com.zhengzhou.testdemo.domain.Send">
+        insert  into send
+        (
+        vip_id,
+        resume_id,
+        position_id,
+        send_time,
+        send_interview_result
+        )
+        values
+        (
+        #{vip_id},
+        #{resume_id},
+        #{position_id},
+        #{send_time},
+        #{send_interview_result}
+        )
+    </insert>
+
+    <update id="updateInterviewResult" parameterType="int">
+        update send set send_interview_result= #{send_interview_result} where send_id = #{send_id}
+    </update>
+
+
+
+</mapper>
