@@ -106,6 +106,7 @@ public class PositionController {
      * @param position_recruiting_numbers 招聘人数
      * @param position_release_date  发布日期
      * @return 修改成功或修改失败
+     * @throws ParseException 时间格式出错
      */
     @ResponseBody
     @PostMapping(value = "/position/updatePosition")
