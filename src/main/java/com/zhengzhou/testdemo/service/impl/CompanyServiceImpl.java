@@ -1,10 +1,8 @@
 package com.zhengzhou.testdemo.service.impl;
-
 import com.zhengzhou.testdemo.domain.Company;
 import com.zhengzhou.testdemo.mapper.CompanyMapper;
 import com.zhengzhou.testdemo.service.CompanyService;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 
 

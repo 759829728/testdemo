@@ -1,11 +1,9 @@
 package com.zhengzhou.testdemo.service.impl;
-
 import com.zhengzhou.testdemo.Vo.VipResumeVo;
 import com.zhengzhou.testdemo.domain.Position;
 import com.zhengzhou.testdemo.mapper.PositionMapper;
 import com.zhengzhou.testdemo.service.PositionService;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +19,6 @@ public class PositionServiceImpl implements PositionService {
      */
     @Resource
     private PositionMapper positionMapper;
-
 
     /**
      * 对职位表数据的插入

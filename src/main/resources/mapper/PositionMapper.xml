@@ -37,9 +37,6 @@
         <result property="position_recruiting_numbers" column="position_recruiting_numbers"/>
     </resultMap>
 
-
-
-
     <!--对职位表数据的插入-->
     <insert id="insertPosition" parameterType="com.zhengzhou.testdemo.domain.Position">
         INSERT INTO

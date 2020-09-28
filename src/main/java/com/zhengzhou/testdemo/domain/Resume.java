@@ -1,6 +1,5 @@
 package com.zhengzhou.testdemo.domain;
 
-import lombok.Data;
 import org.springframework.stereotype.Component;
 
 /**

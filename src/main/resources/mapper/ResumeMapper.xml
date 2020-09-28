@@ -4,10 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhengzhou.testdemo.mapper.ResumeMapper">
 
+      <!--resume的resume_id关系映射-->
       <resultMap id="result" type="java.lang.Integer">
         <id property="resume_id" column="resume_id"/>
       </resultMap>
-
 
     <!--对简历表数据的添加-->
     <insert id="insertResume" parameterType="com.zhengzhou.testdemo.domain.Resume">
@@ -84,6 +84,7 @@
       FROM
 	    resume
   </select>
+
 
 
 </mapper>

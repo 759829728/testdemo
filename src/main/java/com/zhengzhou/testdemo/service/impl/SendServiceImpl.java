@@ -32,7 +32,6 @@ public class SendServiceImpl implements SendService {
     @Resource
     private ResumeMapper resumeMapper;
 
-
     /**
      * 投递简历功能，并且校验简历是否重复,如果招聘人数已满，提示招聘人数已满
      * @param send send对象

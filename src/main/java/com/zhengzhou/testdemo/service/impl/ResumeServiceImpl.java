@@ -1,11 +1,8 @@
 package com.zhengzhou.testdemo.service.impl;
-
 import com.zhengzhou.testdemo.domain.Resume;
 import com.zhengzhou.testdemo.mapper.ResumeMapper;
 import com.zhengzhou.testdemo.service.ResumeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.List;
 

@@ -1,8 +1,6 @@
 package com.zhengzhou.testdemo.service;
-
 import com.zhengzhou.testdemo.Vo.VipResumeVo;
 import com.zhengzhou.testdemo.domain.Position;
-
 import java.util.List;
 import java.util.Map;
 

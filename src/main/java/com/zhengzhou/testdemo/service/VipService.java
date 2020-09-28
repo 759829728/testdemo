@@ -1,6 +1,4 @@
 package com.zhengzhou.testdemo.service;
-
-
 import com.zhengzhou.testdemo.domain.Vip;
 
 public interface VipService {

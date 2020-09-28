@@ -1,5 +1,4 @@
 package com.zhengzhou.testdemo.service;
-
 import com.zhengzhou.testdemo.domain.Company;
 
 public interface CompanyService {
