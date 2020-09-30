@@ -4,7 +4,10 @@ import com.zhengzhou.testdemo.domain.Vip;
 import com.zhengzhou.testdemo.service.VipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 
 /**
  * 会员控制器
@@ -88,8 +91,6 @@ public class VipController {
             return "修改失败";
         }
     }
-
-
 
 
 

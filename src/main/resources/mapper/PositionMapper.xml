@@ -206,10 +206,10 @@
                          p.*
                     FROM
                           position p
-                    JOIN company c
-                    ON p.position_name = #{position_name} AND c.company_name = #{company_name}
-            WHERE
-                  p.company_id = c.company_id) p
+                    JOIN  company c
+                    ON    p.position_name = #{position_name} AND c.company_name = #{company_name}
+                    WHERE
+                          p.company_id = c.company_id) p
             JOIN
                   resume r
             on

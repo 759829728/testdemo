@@ -1,5 +1,4 @@
 package com.zhengzhou.testdemo.controller;
-
 import com.zhengzhou.testdemo.domain.Resume;
 import com.zhengzhou.testdemo.service.ResumeService;
 import org.springframework.beans.factory.annotation.Autowired;

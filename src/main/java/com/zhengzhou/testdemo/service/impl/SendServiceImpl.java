@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 投递业务层
+ * 投递业 务层
  */
 @Service
 public class SendServiceImpl implements SendService {

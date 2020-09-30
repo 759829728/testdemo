@@ -1,6 +1,7 @@
 package com.zhengzhou.testdemo.mapper;
 
 import com.zhengzhou.testdemo.domain.Company;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
