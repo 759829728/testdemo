@@ -28,7 +28,6 @@ public class CompanyController {
      * @param company_industry  公司行业
      * @return  插入成功或插入失败
      */
-
     @ResponseBody
     @PostMapping("/company/insertCompany")
     public String insert(
